@@ -1,0 +1,27 @@
+[project]
+name = "ap-forecast-automation"
+version = "0.1.0"
+description = "Parses supplier statement PDFs into an accounts-payable forecast workbook"
+requires-python = ">=3.10"
+readme = "README.md"
+dependencies = [
+    "pandas>=2.0",
+    "pdfplumber>=0.10",
+    "xlsxwriter>=3.1",
+    "python-dotenv>=1.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
