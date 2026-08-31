@@ -17,8 +17,10 @@ supplier, every week.
 `pdfplumber`, extracting the overdue-balance table by locating it
 between known header/footer text markers, pivots it into one row per
 due-date bucket with one column per store, and writes a multi-sheet
-Excel workbook (one sheet per supplier) with bank-transfer details
-attached, ready to forward to the finance team.
+Excel workbook (one sheet per supplier) ready to forward to the finance
+team. Each sheet gets one label row naming which bank the payment run
+should go through per store (e.g. "ANZ") — a routing label only, never
+an account number or any other transfer detail.
 
 ## Project layout
 

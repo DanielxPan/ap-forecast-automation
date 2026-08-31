@@ -103,9 +103,14 @@ def pivot_statement_df(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def add_bank_details_row(df_pivot: pd.DataFrame, config: SupplierStatementConfig) -> pd.DataFrame:
-    """Prepend a row with bank-transfer details, matching the pivot's column count."""
+    """Prepend a row labeling which bank each store pays this supplier through.
+
+    This is a label only (e.g. "ANZ", "Westpac") for whoever processes the
+    payment run to route it correctly - it never contains an account
+    number or any other transfer detail.
+    """
     num_store_columns = df_pivot.shape[1] - 4
-    bank_row = ["Bank", "", config.sheet_name] + ["BankName"] * num_store_columns + [""]
+    bank_row = ["Bank", "", config.sheet_name] + [config.bank_name] * num_store_columns + [""]
     df_bank_row = pd.DataFrame([bank_row], columns=df_pivot.columns.tolist())
     return pd.concat([df_bank_row, df_pivot], ignore_index=True)
 

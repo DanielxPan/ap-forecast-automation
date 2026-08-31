@@ -59,4 +59,4 @@ def test_add_bank_details_row_prepends_row_matching_column_count():
     assert len(result) == 2
     assert result.iloc[0]["Item"] == "Bank"
     assert result.iloc[0]["Supplier"] == "TestSupplier"
-    assert result.iloc[0]["TEST STORE 1"] == "BankName"
+    assert result.iloc[0]["TEST STORE 1"] == "TestBank"
